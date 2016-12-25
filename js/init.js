@@ -10,7 +10,7 @@
 	$document.ready(function() {
 
 		// Get positions
-		var themeNames = [ 'Businessx' ];
+		var themeNames = [ 'Videoblog' ];
 
 		$('.themewrap').each(function( index ) {
 			var themeName = $( this ).find('.details').text(),

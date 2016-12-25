@@ -1,7 +1,7 @@
 <?php
 get_header();
 if(current_user_can('edit_theme_options')) {
-	$uri = 'https://themes.trac.wordpress.org/query?priority=new+theme&priority=previously+reviewed&owner=&status=new&status=reviewing&keywords=!~buddypress&max=1000&col=id&col=summary&col=status&col=time&col=changetime&col=reporter&report=2&order=time';
+	$uri = 'https://themes.trac.wordpress.org/query?status=approved&group=priority&col=id&col=summary&col=reporter&col=owner&col=priority&col=changetime&col=keywords&report=24&order=changetime';
 	$contents = wp_remote_fopen($uri);
 	$dom = new DOMDocument();
 	$dom->preserveWhiteSpace = false;
@@ -12,7 +12,7 @@ if(current_user_can('edit_theme_options')) {
 		$themelist = array();
 		$count = 1;
 
-		$tr = $domxpath->query('//table[@class="listing tickets"]/tbody/tr');
+		$tr = $domxpath->query('//table[@class="listing tickets"]/tbody[1]/tr');
 
 
 		foreach ($tr as $key) {
